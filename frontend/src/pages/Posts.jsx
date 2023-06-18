@@ -15,11 +15,11 @@ const Posts = () => {
 export default Posts;
 
 export const loader = async () => {
-  const response = await fetch("http://localhost:8080/events");
+  const response = await fetch("http://localhost:8080/posts");
 
   if (!response.ok) {
   } else {
     const data = await response.json();
-    return data.events;
+    return data.posts;
   }
 };
