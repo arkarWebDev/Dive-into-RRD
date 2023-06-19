@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./layout/Main";
 import Posts, { loader as postsLoader } from "./pages/Posts";
-import Create from "./pages/Create";
+import Create, { action as postCreateAction } from "./pages/Create";
 import Details, { loader as detailsLoader } from "./pages/Details";
+import Edit from "./pages/Edit";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,11 +19,16 @@ const App = () => {
         {
           path: "/create-post",
           element: <Create />,
+          action: postCreateAction,
         },
         {
           path: "/post-details/:id",
           element: <Details />,
           loader: detailsLoader,
+        },
+        {
+          path: "/edit-post/:id",
+          element: <Edit />,
         },
       ],
     },

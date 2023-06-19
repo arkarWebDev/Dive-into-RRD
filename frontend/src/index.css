@@ -50,6 +50,9 @@ nav div a.active {
 
 .date {
   color: #999;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .details {
@@ -68,4 +71,69 @@ nav div a.active {
 
 .description {
   color: #222;
+}
+
+.clockIcon,
+.arrowIcon {
+  width: 2rem;
+}
+
+.clockIcon,
+.arrowIcon {
+  height: 2rem;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-section {
+  width: 50%;
+  margin: auto;
+}
+
+.form-section p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.form-section form div {
+  margin-top: 20px;
+}
+
+.form-section form div label {
+  display: block;
+  font-size: 18px;
+}
+
+.form-section form div input,
+textarea {
+  width: 100%;
+  border: 1px solid #222;
+  font-size: 18px;
+  padding: 8px 8px;
+}
+
+.btn {
+  color: #fff;
+  background-color: #000;
+  padding: 10px 0px;
+  font-size: 19px;
+  width: 50%;
+}
+
+.sm {
+  width: max-content;
+  padding: 8px 10px;
+  font-size: 16px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.detail-footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
