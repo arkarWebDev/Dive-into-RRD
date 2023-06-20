@@ -6,10 +6,10 @@ const PostItem = ({ post }) => {
 
   return (
     <section className="post">
-      <Link to={`/post-details/${id}`}>
+      <Link to={`${id}`}>
         <img src={image} alt={title} />
       </Link>
-      <Link to={`/post-details/${id}`}>
+      <Link to={`${id}`}>
         <p className="title">{title}</p>
       </Link>
       <p className="date">

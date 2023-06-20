@@ -1,10 +1,15 @@
-import React from "react";
+import { useRouteLoaderData } from "react-router-dom";
+import PostForm from "../components/PostForm";
 
 const Edit = () => {
+  const post = useRouteLoaderData("post-detail");
   return (
     <>
-      <h1>Edit your post here !!!</h1>
-      <p>Still developing ...</p>
+      <PostForm
+        header={"Edit your post now."}
+        btnText={"Update Post"}
+        oldPostData={post}
+      />
     </>
   );
 };

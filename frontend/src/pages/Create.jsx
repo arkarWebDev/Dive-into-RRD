@@ -6,7 +6,7 @@ import { redirect } from "react-router-dom";
 const Create = () => {
   return (
     <>
-      <PostForm />
+      <PostForm header={"Create your post now."} btnText={"Create Post"} />
     </>
   );
 };
@@ -32,8 +32,13 @@ export const action = async ({ request, params }) => {
     body: JSON.stringify(postData),
   });
 
-  if (!response.ok) {
-    // code
+  if (response.status === 422) {
+    return response;
   }
+
+  if (!response.ok) {
+    throw new Error("");
+  }
+
   return redirect("/");
 };

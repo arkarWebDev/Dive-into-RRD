@@ -122,6 +122,7 @@ textarea {
   padding: 10px 0px;
   font-size: 19px;
   width: 50%;
+  cursor: pointer;
 }
 
 .sm {
@@ -130,10 +131,44 @@ textarea {
   font-size: 16px;
   display: inline;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.errorPage {
+  width: 60%;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorPage div {
+  text-align: center;
+}
+
+.errorPage div .icon {
+  width: 20rem;
+  height: 20rem;
+}
+
+.er-btn {
+  width: max-content;
+  padding: 10px 12px;
+  display: inline-block;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  transition: 0.4s all ease-in;
+}
+
+.er-btn:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .detail-footer {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
