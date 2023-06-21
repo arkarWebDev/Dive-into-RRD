@@ -1,13 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./layout/Main";
 import Posts, { loader as postsLoader } from "./pages/Posts";
-import Create, { action as postCreateAction } from "./pages/Create";
+import { action as postCreateAction } from "./components/PostForm";
+import { action as postUpdateAction } from "./components/PostForm";
+
 import Details, {
   action as deleteAction,
   loader as detailsLoader,
 } from "./pages/Details";
 import Edit from "./pages/Edit";
 import Error from "./pages/Error";
+import Create from "./pages/Create";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -39,6 +42,7 @@ const App = () => {
             {
               path: "edit-post",
               element: <Edit />,
+              action: postUpdateAction,
             },
           ],
         },

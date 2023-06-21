@@ -172,3 +172,11 @@ textarea {
   align-items: center;
   justify-content: flex-end;
 }
+
+@media (max-width: 480px) {
+  .main,
+  .details,
+  .form-section {
+    width: 100%;
+  }
+}
