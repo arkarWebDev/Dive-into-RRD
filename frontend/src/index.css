@@ -173,6 +173,19 @@ textarea {
   justify-content: flex-end;
 }
 
+.login-btn {
+  margin: 20px 0;
+}
+
+.create-acc {
+  font-size: 16px !important;
+  font-weight: normal !important;
+}
+
+.create-acc a {
+  text-decoration: underline !important;
+}
+
 @media (max-width: 480px) {
   .main,
   .details,
