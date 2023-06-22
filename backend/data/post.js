@@ -1,17 +1,7 @@
-const fs = require("node:fs/promises");
-
 const { v4: generateId } = require("uuid");
 
 const { NotFoundError } = require("../util/errors");
-
-async function readData() {
-  const data = await fs.readFile("posts.json", "utf8");
-  return JSON.parse(data);
-}
-
-async function writeData(data) {
-  await fs.writeFile("posts.json", JSON.stringify(data));
-}
+const { readData, writeData } = require("./util");
 
 async function getAll() {
   const storedData = await readData();
@@ -60,7 +50,7 @@ async function replace(id, data) {
 async function remove(id) {
   const storedData = await readData();
   const updatedData = storedData.posts.filter((ev) => ev.id !== id);
-  await writeData({ posts: updatedData });
+  await writeData({ ...storedData, posts: updatedData });
 }
 
 exports.getAll = getAll;
