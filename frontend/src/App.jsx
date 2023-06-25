@@ -11,7 +11,9 @@ import Details, {
 import Edit from "./pages/Edit";
 import Error from "./pages/Error";
 import Create from "./pages/Create";
-import Auth from "./pages/Auth";
+import Auth, { action as Authaction } from "./pages/Auth";
+import { loader as logoutLoader } from "./pages/Logout";
+import { tokenLoader } from "./util/auth";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -19,6 +21,8 @@ const App = () => {
       path: "/",
       element: <Main />,
       errorElement: <Error />,
+      id: "root",
+      loader: tokenLoader,
       children: [
         {
           index: true,
@@ -33,6 +37,11 @@ const App = () => {
         {
           path: "/auth",
           element: <Auth />,
+          action: Authaction,
+        },
+        {
+          path: "/logout",
+          loader: logoutLoader,
         },
         {
           path: ":id",

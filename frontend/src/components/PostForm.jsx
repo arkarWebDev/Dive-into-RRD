@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Link, redirect, useActionData } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import uuid from "react-uuid";
+import { getToken } from "../util/auth";
 
 const PostForm = ({ header, btnText, oldPostData, method }) => {
   const data = useActionData();
@@ -74,6 +75,7 @@ export default PostForm;
 export const action = async ({ request, params }) => {
   const data = await request.formData();
   const method = request.method;
+  const token = getToken();
 
   const postData = {
     id: uuid(),
@@ -94,6 +96,7 @@ export const action = async ({ request, params }) => {
     method,
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
     },
     body: JSON.stringify(postData),
   });

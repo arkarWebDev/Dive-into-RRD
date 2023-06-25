@@ -1,7 +1,9 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useRouteLoaderData } from "react-router-dom";
 
 const Navbar = () => {
+  const isToken = useRouteLoaderData("root");
+
   return (
     <nav>
       <Link to={"/"}>
@@ -9,8 +11,9 @@ const Navbar = () => {
       </Link>
       <div>
         <NavLink to={"/"}>Posts</NavLink>
-        <NavLink to={"/create-post"}>Create Post</NavLink>
-        <NavLink to={"/auth?mode=login"}>Login</NavLink>
+        {isToken && <NavLink to={"/create-post"}>Create Post</NavLink>}
+        {!isToken && <NavLink to={"/auth?mode=login"}>Login</NavLink>}
+        {isToken && <NavLink to={"/logout"}>Logout</NavLink>}
       </div>
     </nav>
   );
