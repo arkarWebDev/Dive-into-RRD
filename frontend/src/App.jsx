@@ -13,7 +13,7 @@ import Error from "./pages/Error";
 import Create from "./pages/Create";
 import Auth, { action as Authaction } from "./pages/Auth";
 import { loader as logoutLoader } from "./pages/Logout";
-import { tokenLoader } from "./util/auth";
+import { checkTokenLoader, tokenLoader } from "./util/auth";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -33,6 +33,7 @@ const App = () => {
           path: "/create-post",
           element: <Create />,
           action: postCreateAction,
+          loader: checkTokenLoader,
         },
         {
           path: "/auth",
@@ -57,6 +58,7 @@ const App = () => {
               path: "edit-post",
               element: <Edit />,
               action: postUpdateAction,
+              loader: checkTokenLoader,
             },
           ],
         },
