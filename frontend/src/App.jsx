@@ -16,6 +16,7 @@ import { loader as logoutLoader } from "./pages/Logout";
 import { checkTokenLoader, tokenLoader } from "./util/auth";
 
 const App = () => {
+  console.log(process.env.REACT_APP_DOMAIN);
   const router = createBrowserRouter([
     {
       path: "/",

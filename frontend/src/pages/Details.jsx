@@ -15,7 +15,9 @@ const Details = () => {
 export default Details;
 
 export const loader = async ({ request, params }) => {
-  const response = await fetch(`http://localhost:8080/posts/${params.id}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_DOMAIN}/posts/${params.id}`
+  );
 
   if (!response.ok) {
   } else {
@@ -26,12 +28,15 @@ export const loader = async ({ request, params }) => {
 
 export const action = async ({ request, params }) => {
   const token = getToken();
-  const response = await fetch(`http://localhost:8080/posts/${params.id}`, {
-    method: request.method,
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_DOMAIN}/posts/${params.id}`,
+    {
+      method: request.method,
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    }
+  );
 
   if (!response.ok) {
     throw new Error("");
